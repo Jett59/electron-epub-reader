@@ -1,10 +1,7 @@
-const { app, BrowserWindow } = require('electron')
+import { app, BrowserWindow } from 'electron'
 
 const createWindow = () => {
-    const win = new BrowserWindow({
-        width: 800,
-        height: 600
-    })
+    const win = new BrowserWindow({})
 
     if (process.env.ELECTRON_EPUB_READER_MODE === 'dev') {
         win.loadURL('http://localhost:5173')
