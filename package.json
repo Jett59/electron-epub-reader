@@ -1,0 +1,23 @@
+{
+  "name": "electron-epub-reader",
+  "version": "0.0.0",
+  "description": "Reads EPUB files",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "set ELECTRON_EPUB_READER_MODE=dev&& electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jett59/electron-epub-reader.git"
+  },
+  "author": "Jett Thompson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jett59/electron-epub-reader/issues"
+  },
+  "homepage": "https://github.com/Jett59/electron-epub-reader#readme",
+  "devDependencies": {
+    "electron": "^39.1.2"
+  }
+}
