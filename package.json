@@ -2,7 +2,6 @@
   "name": "electron-epub-reader",
   "version": "0.0.0",
   "description": "Reads EPUB files",
-  "type": "module",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,6 +18,7 @@
   },
   "homepage": "https://github.com/Jett59/electron-epub-reader#readme",
   "devDependencies": {
+    "@types/node": "^24.10.1",
     "electron": "^39.1.2",
     "typescript": "^5.9.3"
   }

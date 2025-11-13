@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useRef } from 'react'
+import { Box, Button } from '@mui/material'
+
+// Declared in preload.ts
+declare global {
+  interface Window {
+    epubReader: {
+      loadFile: (data: ArrayBuffer) => Promise<string>
+    }
+  }
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const filePickerRef = useRef<HTMLInputElement>(null)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  return <Box>
+    <Button variant="contained" onClick={() => filePickerRef.current?.click()}>
+      Pick a file
+    </Button>
+    <input
+      ref={filePickerRef}
+      accept='.epub,application/epub+zip'
+      type="file"
+      style={{ display: 'none' }}
+      onChange={(e) => {
+        const file = e.target.files?.[0]
+        if (file) {
+          file.arrayBuffer()  .then((data) => {
+            return window.epubReader.loadFile(data)
+          })
+        }
+      }}
+    />
+  </Box>
 }
 
 export default App
