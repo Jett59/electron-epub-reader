@@ -21,5 +21,10 @@
     "@types/node": "^24.10.1",
     "electron": "^39.1.2",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@types/adm-zip": "^0.5.7",
+    "adm-zip": "^0.5.16",
+    "mime": "^4.1.0"
   }
 }
