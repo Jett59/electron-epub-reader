@@ -97,3 +97,4 @@ server.js
 preload.js
 vite.svg
 assets/
+!forge.config.js
