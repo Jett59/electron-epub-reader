@@ -1,0 +1,17 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Book cover/spine -->
+  <rect x="20" y="15" width="60" height="70" fill="#4A90E2" rx="2"/>
+  
+  <!-- Book pages (right side) -->
+  <rect x="78" y="17" width="4" height="66" fill="#E8E8E8"/>
+  <rect x="76" y="19" width="4" height="64" fill="#F5F5F5"/>
+  
+  <!-- Bookmark -->
+  <path d="M 65 15 L 65 40 L 60 35 L 55 40 L 55 15 Z" fill="#E74C3C"/>
+  
+  <!-- EPUB text -->
+  <text x="50" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">EPUB</text>
+  
+  <!-- Book binding line -->
+  <line x1="22" y1="15" x2="22" y2="85" stroke="#2E5C8A" stroke-width="1"/>
+</svg>

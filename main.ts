@@ -2,6 +2,9 @@ import { app, BrowserWindow, ipcMain, Event } from 'electron'
 import path from 'path'
 import AdmZip from 'adm-zip'
 import ZipServer from './zip-server'
+import setupPlatform from './platform-setup'
+
+setupPlatform()
 
 const createWindow = () => {
     const win = new BrowserWindow({

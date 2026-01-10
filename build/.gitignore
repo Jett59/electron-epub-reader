@@ -95,6 +95,7 @@ out/
 index.html
 server.js
 preload.js
-vite.svg
+epub.svg
+epub.ico
 assets/
 !forge.config.js
