@@ -1,8 +1,9 @@
 {
-  "name": "build",
-  "productName": "electron-epub-reader",
+  "name": "electron-epub-reader",
+  "productName": "Electron ePub Reader",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Displays .epub files",
+  "author": "Jett Thompson",
   "main": "server.js",
   "scripts": {
     "start": "electron-forge start",

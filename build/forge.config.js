@@ -4,14 +4,15 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 module.exports = {
   packagerConfig: {
     asar: true,
-    icon: './assets/epub',
+    icon: './epub',
   },
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        //setupIcon: './assets/epub.ico',
+        iconUrl: 'https://raw.githubusercontent.com/Jett59/electron-epub-reader/refs/heads/main/client-ui/public/epub.ico',
+        setupIcon: './epub.ico',
       },
     },
     {
