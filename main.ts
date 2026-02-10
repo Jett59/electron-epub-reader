@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, Event } from 'electron'
+import { app, BrowserWindow, ipcMain, Event, protocol } from 'electron'
 import path from 'path'
 import AdmZip from 'adm-zip'
 import ZipServer from './zip-server'
@@ -22,15 +22,35 @@ const createWindow = () => {
 
 const zipServers: ZipServer[] = []
 
+protocol.registerSchemesAsPrivileged([
+  {
+    scheme: 'epub',
+    privileges: {
+      standard: true,
+      secure: true,
+      supportFetchAPI: true
+    }
+  }
+])
+
 app.whenReady().then(() => {
+    protocol.handle('epub', request => {
+        console.log(request.url)
+    for (const server of zipServers) {
+        if (request.url.startsWith(`epub://${server.id}/`)) {
+            const filePath = request.url.replace(`epub://${server.id}/`, '')
+            return server.handleFileRequest(filePath)
+        }
+    }
+    return new Response('Not found', { status: 404 })
+})
+
     ipcMain.handle('loadFile', async (event: Event, data: ArrayBuffer) => {
-        console.log('File loaded with size:', data.byteLength)
+        const id = crypto.randomUUID()
         const zip = new AdmZip(Buffer.from(data))
-        const zipServer = new ZipServer(zip)
+        const zipServer = new ZipServer(id, zip)
         zipServers.push(zipServer)
-        const url = await zipServer.start()
-        console.log(url)
-        return url
+        return id
     })
 
     createWindow()

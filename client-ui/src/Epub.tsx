@@ -3,7 +3,6 @@ import { Box, Button, Stack, Typography } from "@mui/material"
 import { useEffect, useMemo, useState } from "react"
 
 export default function EpubView({ url }: { url: string }) {
-    // TODO
     const [rootFilePath, setRootFilePath] = useState<string | null>(null)
     const [title, setTitle] = useState<string | null>(null)
     const [items, setItems] = useState<Array<{ id: string, href: string, mediaType: string }>>([])

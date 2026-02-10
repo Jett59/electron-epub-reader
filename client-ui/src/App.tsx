@@ -32,8 +32,8 @@ function App() {
           if (file) {
             file.arrayBuffer().then((data) => {
               return window.epubReader.loadFile(data)
-            }).then((url) => {
-              setUrl(url)
+            }).then((id) => {
+              setUrl(`epub://${id}`)
             })
           }
         }}
